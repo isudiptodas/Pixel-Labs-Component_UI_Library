@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Aesthetic-Romance;
+  src: url("/fonts/Aesthetic Romance.ttf") format("truetype");
+}
+@font-face {
+  font-family: Dream-Orphans;
+  src: url("/fonts/Dream Orphans.ttf") format("opentype");
+}
+@font-face {
+  font-family: Nearo;
+  src: url("/fonts/Nearo-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: Okaluera;
+  src: url("/fonts/Okaluera.ttf") format("opentype");
+}
+@font-face {
+  font-family: Recline;
+  src: url("/fonts/Recline-Regular.ttf") format("truetype");
+}
+
+@theme{
+    --font-Aesthetic: "Aesthetic-Romance";
+    --font-Dream: "Dream-Orphans";
+    --font-Nearo: "Nearo";
+    --font-Okaluera: "Okaluera";
+    --font-Recline: "Recline";
+}
