@@ -2,13 +2,12 @@ export const buttonList = [
     'Expand on hover',
     'Gradient',
     'Shrink on click',
-    'Border shine',
-    'Multi color beam',
+    'Multi color beam', 
 ];
 
 export const formList = [
     'Simple data',
-    'Multi step',
+    'Multi step', 
     'Form with file upload',
 ];
 
