@@ -1,4 +1,4 @@
-'use client'
+'use client' 
 
 import { useEffect, useState } from "react"
 import { CiSun } from "react-icons/ci";
