@@ -2,8 +2,8 @@ export const buttonList = [
     'Expand on hover',
     'Gradient',
     'Shrink on click',
-    'Multi color beam', 
-];
+    'Multi color beam',  
+]; 
 
 export const formList = [
     'Simple data',

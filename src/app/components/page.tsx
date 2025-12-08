@@ -15,6 +15,8 @@ import axios from "axios";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yLight, irBlack } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { formComponent } from "@/data/formComponent";
+import { dropdownComponent } from "@/data/dropdownComponent";
+import { drawerComponent } from "@/data/drawerComponent";
 
 interface currentComponent {
     name: string,
@@ -47,6 +49,16 @@ function page() {
         else if (currentType === 'form') {
             const currentName = currentSelected;
             const data = formComponent.filter((form) => form.name.toLowerCase() === currentName.toLowerCase());
+            setCurrentComponent(data[0] as currentComponent);
+        }
+        else if (currentType === 'dropdown') {
+            const currentName = currentSelected;
+            const data = dropdownComponent.filter((drop) => drop.name.toLowerCase() === currentName.toLowerCase());
+            setCurrentComponent(data[0] as currentComponent);
+        }
+        else if (currentType === 'drawer') {
+            const currentName = currentSelected;
+            const data = drawerComponent.filter((draw) => draw.name.toLowerCase() === currentName.toLowerCase());
             setCurrentComponent(data[0] as currentComponent);
         }
     }, [currentSelected]);
@@ -174,19 +186,19 @@ function page() {
 
                         <p className={`w-full mb-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Buttons</p>
                         {buttonList.map((btn) => {
-                            return <span onClick={() => { setCurrentSelected(btn); setListVisible(false); setCurrentType('button') }} key={btn} className={`w-full py-2 px-3 rounded-full ${currentSelected === btn ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{btn}</span>
+                            return <span onClick={() => { setCurrentSelected(btn); setListVisible(false); setCurrentType('button') }} key={btn} className={`w-full py-2 px-3 rounded-full ${currentSelected === btn ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{btn}</span>
                         })}
                         <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Form</p>
                         {formList.map((form) => {
-                            return <span onClick={() => { setCurrentSelected(form); setListVisible(false); setCurrentType('form') }} key={form} className={`w-full py-2 px-3 rounded-full ${currentSelected === form ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{form}</span>
+                            return <span onClick={() => { setCurrentSelected(form); setListVisible(false); setCurrentType('form') }} key={form} className={`w-full py-2 px-3 rounded-full ${currentSelected === form ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{form}</span>
                         })}
                         <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Dropdown</p>
                         {dropdownList.map((drop) => {
-                            return <span onClick={() => { setCurrentSelected(drop); setListVisible(false); setCurrentType('drop') }} key={drop} className={`w-full py-2 px-3 rounded-full ${currentSelected === drop ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{drop}</span>
+                            return <span onClick={() => { setCurrentSelected(drop); setListVisible(false); setCurrentType('dropdown') }} key={drop} className={`w-full py-2 px-3 rounded-full ${currentSelected === drop ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{drop}</span>
                         })}
                         <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Drawer</p>
                         {drawerList.map((drw) => {
-                            return <span onClick={() => { setCurrentSelected(drw); setListVisible(false); setCurrentType('drawer') }} key={drw} className={`w-full py-2 px-3 rounded-full ${currentSelected === drw ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{drw}</span>
+                            return <span onClick={() => { setCurrentSelected(drw); setListVisible(false); setCurrentType('drawer') }} key={drw} className={`w-full py-2 px-3 rounded-full ${currentSelected === drw ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{drw}</span>
                         })}
                     </div>
 
@@ -229,9 +241,9 @@ function page() {
                                         <th className={`${dark ? "text-white" : "text-black"} text-start duration-200 ease-in-out text-sm w-[35%]`}>Example</th>
                                     </tr>
                                     <tr className={`w-full py-2 px-3 lg:px-5 flex justify-start items-center`}>
-                                        <td className={`${dark ? "text-white" : "text-black"} text-start duration-200 ease-in-out text-[10px] lg:text-[12px] w-[20%]`}>{prop.name}</td>
+                                        <td className={`${dark ? "text-white" : "text-black"} text-start duration-200 ease-in-out text-[10px] pr-4 lg:text-[12px] w-[20%]`}>{prop.name}</td>
                                         <td className={`${dark ? "text-white" : "text-black"} text-start duration-200 ease-in-out text-[10px] lg:text-[12px] pr-5 w-[60%]`}>{prop.desc}</td>
-                                        <td className={`${dark ? "text-white" : "text-black"} text-start duration-200 ease-in-out text-[10px] lg:text-[12px] w-[35%]`}>{prop.example}</td>
+                                        <td className={`${dark ? "text-white" : "text-black"} text-start duration-200 ease-in-out font-mono text-[10px] lg:text-[12px] w-[35%]`}>{prop.example}</td>
                                     </tr>
                                 </table>
                             })}
@@ -243,8 +255,8 @@ function page() {
                             {currentComponent?.steps?.map((step, index) => {
                                 return <div key={index} className={`w-full flex flex-col justify-start items-center`}>
                                     <p className={`w-full text-start ${dark ? "text-white" : "text-black"} duration-200 ease-in-out text-[12px]`}>{step.name}</p>
-                                    <p className={`w-full text-start ${step.command ? "block" : "hidden"} ${dark ? "text-white bg-zinc-800" : "text-black bg-gray-200"} md:py-2 py-3 px-3 rounded-md my-2 duration-200 ease-in-out font-mono text-[12px] relative`}>{step?.command}
-                                        <span onClick={() => navigator.clipboard.writeText(step?.command as string)} className={`absolute right-3 active:opacity-40 duration-200 ease-in-out text-sm cursor-pointer ${dark ? "text-white" : "text-black"} opacity-50`}><IoCopyOutline /></span>
+                                    <p className={`w-full text-start ${step.command ? "block" : "hidden"} ${dark ? "text-white bg-zinc-800" : "text-black bg-gray-200"} md:py-2 py-3 px-3 rounded-md z-10 my-2 duration-200 ease-in-out font-mono text-[12px] relative`}>{step?.command}
+                                        <span onClick={() => navigator.clipboard.writeText(step?.command as string)} className={`absolute right-3 z-20 active:opacity-40 duration-200 ease-in-out text-sm cursor-pointer ${dark ? "text-white" : "text-black"} opacity-50`}><IoCopyOutline /></span>
                                     </p>
                                 </div>
                             })}
