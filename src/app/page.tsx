@@ -158,6 +158,11 @@ function page() {
           </div>
 
         </div>
+
+        <div className={`w-full h-auto py-2 flex justify-center items-center`}>
+          <img src="/assets/pixel-labs-ui-dark.png" className={`h-40 ${dark ? "block" : "hidden"} md:h-64 lg:h-[450px]`}/>
+          <img src="/assets/pixel-labs-ui-white.png" className={`h-40 ${dark ? "hidden" : "block"} md:h-64 lg:h-[450px]`}/>
+        </div>
       </div>
     </>
   )

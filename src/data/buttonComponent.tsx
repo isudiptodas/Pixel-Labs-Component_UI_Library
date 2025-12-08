@@ -16,7 +16,7 @@ export const buttonComponent = [
             { name: `3. Install and setup tailwindCSS` }
         ],
         demo: <ExpandOnHover/>,
-        usage: `import <ExpandOnHover/> from '@/components.ExpandOnHover.tsx'`
+        usage: `import <ExpandOnHover/> from '@/components/ExpandOnHover.tsx'`
     },
     {
         name: `Multi Color Beam`,
@@ -30,7 +30,7 @@ export const buttonComponent = [
             { name: `3. Install and setup tailwindCSS` }
         ],
         demo: <MultiColorBeam/>,
-        usage: `import <MultiColorBeam/> from '@/components.MultiColorBeam.tsx'`
+        usage: `import <MultiColorBeam/> from '@/components/MultiColorBeam.tsx'`
     },
     {
         name: `Shrink On Click`,
@@ -44,7 +44,7 @@ export const buttonComponent = [
             { name: `3. Install and setup tailwindCSS` }
         ],
         demo: <ShrinkOnClick/>,
-        usage: `import <ShrinkOnClick/> from '@/components.ShrinkOnClick.tsx'`
+        usage: `import <ShrinkOnClick/> from '@/components/ShrinkOnClick.tsx'`
     },
     {
         name: `Gradient`,
@@ -58,7 +58,7 @@ export const buttonComponent = [
             { name: `3. Install and setup tailwindCSS` }
         ],
         demo: <GradientButton/>,
-        usage: `import <GradientButton/> from '@/components.GradientButton.tsx'`,
+        usage: `import <GradientButton/> from '@/components/GradientButton.tsx'`,
         props: [
             {name: `Theme`, desc: `A string value which will determine the theme of the button`, example: `"red", "default", "green", "yellow", "blue"`}
         ]

@@ -17,14 +17,6 @@ export const dropdownList = [
     'Extended with info',
 ];
 
-export const notificationList = [
-    'One line',
-    'Text with icons',
-    'Multi color',
-    'Descriptive',
-    'Dynamic island',
-];
-
 export const drawerList = [
     'Expand from middle',
     'Bottom slide',

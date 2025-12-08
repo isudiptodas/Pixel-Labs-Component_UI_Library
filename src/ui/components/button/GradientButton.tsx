@@ -23,7 +23,7 @@ function GradientButton({ theme = 'default' }: { theme?: string }) {
 
     return (
         <>
-            <p className={`w-auto capitalize px-3 py-2 rounded-full text-center ${currentTheme} ${currentText} cursor-pointer shadow-lg`}>{theme} Button</p>
+            <p className={`w-auto capitalize px-6 py-2 rounded-full text-center ${currentTheme} ${currentText} cursor-pointer text-sm shadow-lg`}>{theme} Button</p>
         </>
     )
 }

@@ -6,7 +6,7 @@ import { IoMdMenu } from "react-icons/io";
 import { BsLayoutSidebarReverse } from "react-icons/bs";
 import Link from "next/link";
 import { Activity, ReactElement, useEffect, useState } from "react";
-import { buttonList, notificationList, drawerList, dropdownList, formList } from '@/data/componentList'
+import { buttonList, drawerList, dropdownList, formList } from '@/data/componentList'
 import { FaAngleDown } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { buttonComponent } from "@/data/buttonComponent";
@@ -14,6 +14,7 @@ import { IoCopyOutline } from "react-icons/io5";
 import axios from "axios";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { a11yLight, irBlack } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { formComponent } from "@/data/formComponent";
 
 interface currentComponent {
     name: string,
@@ -23,7 +24,7 @@ interface currentComponent {
     steps?: { name: string, command?: string }[] | null,
     demo?: ReactElement,
     usage: string,
-    props?: {name: string, desc: string, example: string}[]
+    props?: { name: string, desc: string, example: string }[]
 }
 
 function page() {
@@ -36,15 +37,28 @@ function page() {
     const [currentComponent, setCurrentComponent] = useState<currentComponent | null>(buttonComponent[0]);
     const pathname = usePathname();
 
+    // find type of component and set in currentComponent
     useEffect(() => {
+        if (currentType === 'button') {
+            const currentName = currentSelected;
+            const data = buttonComponent.filter((btn) => btn.name.toLowerCase() === currentName.toLowerCase());
+            setCurrentComponent(data[0] as currentComponent);
+        }
+        else if (currentType === 'form') {
+            const currentName = currentSelected;
+            const data = formComponent.filter((form) => form.name.toLowerCase() === currentName.toLowerCase());
+            setCurrentComponent(data[0] as currentComponent);
+        }
+    }, [currentSelected]);
 
+    // after finding current component fetch code block
+    useEffect(() => {
         if (!currentComponent?.codePath) {
             return;
         }
 
         const fetchCode = async () => {
-            const name = buttonComponent.find((btn) => btn.name.toLowerCase() === currentSelected.toLowerCase());
-            const path = name?.codePath;
+            const path = currentComponent.codePath;
             try {
                 const res = await axios.post(`/api/readFile`, {
                     filePath: path,
@@ -56,14 +70,6 @@ function page() {
 
         fetchCode();
     }, [currentComponent]);
-
-    useEffect(() => {
-        if (currentType === 'button') {
-            const currentName = currentSelected;
-            const data = buttonComponent.filter((btn) => btn.name.toLowerCase() === currentName.toLowerCase());
-            setCurrentComponent(data[0] as currentComponent);
-        }
-    }, [currentSelected]);
 
     const [dark, setDark] = useState(() => {
         if (typeof window !== "undefined") {
@@ -150,10 +156,6 @@ function page() {
                         {dropdownList.map((drop) => {
                             return <span onClick={() => { setCurrentSelected(drop); setListVisible(false); setCurrentType('dropdown') }} key={drop} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{drop}</span>
                         })}
-                        <p className={`w-full mb-2 mt-2 text-start text-[18px] font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Notification</p>
-                        {notificationList.map((not) => {
-                            return <span onClick={() => { setCurrentSelected(not); setListVisible(false); setCurrentType('notification') }} key={not} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{not}</span>
-                        })}
                         <p className={`w-full mb-2 mt-2 text-start text-[18px] font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Drawer</p>
                         {drawerList.map((drw) => {
                             return <span onClick={() => { setCurrentSelected(drw); setListVisible(false); setCurrentType('drawer') }} key={drw} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{drw}</span>
@@ -182,10 +184,6 @@ function page() {
                         {dropdownList.map((drop) => {
                             return <span onClick={() => { setCurrentSelected(drop); setListVisible(false); setCurrentType('drop') }} key={drop} className={`w-full py-2 px-3 rounded-full ${currentSelected === drop ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{drop}</span>
                         })}
-                        <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Notification</p>
-                        {notificationList.map((not) => {
-                            return <span onClick={() => { setCurrentSelected(not); setListVisible(false); setCurrentType('notification') }} key={not} className={`w-full py-2 px-3 rounded-full ${currentSelected === not ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{not}</span>
-                        })}
                         <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Drawer</p>
                         {drawerList.map((drw) => {
                             return <span onClick={() => { setCurrentSelected(drw); setListVisible(false); setCurrentType('drawer') }} key={drw} className={`w-full py-2 px-3 rounded-full ${currentSelected === drw ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[12px]`}>{drw}</span>
@@ -208,13 +206,13 @@ function page() {
                                 <div className={`w-full min-h-[40vh] overflow-auto scrollbar ${dark ? "bg-black text-white border-zinc-800" : "bg-white border-gray-300 text-black"} border duration-200 ease-in-out rounded-2xl relative py-4 px-4`}>
                                     <span onClick={() => navigator.clipboard.writeText(currentCode as string)} className={`absolute right-3 active:opacity-40 duration-200 ease-in-out text-sm lg:text-lg cursor-pointer ${dark ? "text-white" : "text-black"} opacity-50`}><IoCopyOutline /></span>
                                     <SyntaxHighlighter customStyle={{
-                                        scrollbarWidth: "none",     
+                                        scrollbarWidth: "none",
                                         msOverflowStyle: "none"
                                     }} style={dark ? irBlack : a11yLight} language="javascript">{currentCode}</SyntaxHighlighter>
                                 </div>
                             </Activity>
                             <Activity mode={viewType === 'demo' ? "visible" : "hidden"}>
-                                <div className={`w-full h-auto ${dark ? "bg-black text-white border-zinc-800" : "bg-white border-gray-300 text-black"} border duration-200 ease-in-out rounded-2xl relative py-4 px-4`}>
+                                <div className={`w-full h-auto ${dark ? "bg-black text-white border-zinc-800" : "bg-white border-gray-300 text-black"} border duration-200 ease-in-out rounded-2xl relative flex justify-center items-center py-4 px-4`}>
                                     {currentComponent?.demo}
                                 </div>
                             </Activity>
