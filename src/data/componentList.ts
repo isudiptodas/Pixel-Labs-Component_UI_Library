@@ -22,3 +22,11 @@ export const drawerList = [
     'Bottom slide',
     'Top slide',
 ];
+
+export const cardList = [
+    'Horizontal Expand',
+    'Vertical Expand',
+    'Hover Info',
+    'Pricing Info',
+    'Hover Name Reveal'
+];

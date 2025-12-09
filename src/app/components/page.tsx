@@ -6,7 +6,7 @@ import { IoMdMenu } from "react-icons/io";
 import { BsLayoutSidebarReverse } from "react-icons/bs";
 import Link from "next/link";
 import { Activity, ReactElement, useEffect, useState } from "react";
-import { buttonList, drawerList, dropdownList, formList } from '@/data/componentList'
+import { buttonList, drawerList, dropdownList, formList, cardList } from '@/data/componentList'
 import { FaAngleDown } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { buttonComponent } from "@/data/buttonComponent";
@@ -17,6 +17,7 @@ import { a11yLight, irBlack } from 'react-syntax-highlighter/dist/esm/styles/hlj
 import { formComponent } from "@/data/formComponent";
 import { dropdownComponent } from "@/data/dropdownComponent";
 import { drawerComponent } from "@/data/drawerComponent";
+import { cardsComponent } from "@/data/cardsComponent";
 
 interface currentComponent {
     name: string,
@@ -59,6 +60,11 @@ function page() {
         else if (currentType === 'drawer') {
             const currentName = currentSelected;
             const data = drawerComponent.filter((draw) => draw.name.toLowerCase() === currentName.toLowerCase());
+            setCurrentComponent(data[0] as currentComponent);
+        }
+        else if (currentType === 'cards') {
+            const currentName = currentSelected;
+            const data = cardsComponent.filter((card) => card.name.toLowerCase() === currentName.toLowerCase());
             setCurrentComponent(data[0] as currentComponent);
         }
     }, [currentSelected]);
@@ -172,6 +178,10 @@ function page() {
                         {drawerList.map((drw) => {
                             return <span onClick={() => { setCurrentSelected(drw); setListVisible(false); setCurrentType('drawer') }} key={drw} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{drw}</span>
                         })}
+                        <p className={`w-full mb-2 mt-2 text-start text-[18px] font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Cards</p>
+                        {cardList.map((card) => {
+                            return <span onClick={() => { setCurrentSelected(card); setListVisible(false); setCurrentType('cards') }} key={card} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{card}</span>
+                        })}
                     </div>
                 </div>
 
@@ -200,6 +210,10 @@ function page() {
                         {drawerList.map((drw) => {
                             return <span onClick={() => { setCurrentSelected(drw); setListVisible(false); setCurrentType('drawer') }} key={drw} className={`w-full py-2 px-3 rounded-full ${currentSelected === drw ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{drw}</span>
                         })}
+                        <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Cards</p>
+                        {cardList.map((card) => {
+                            return <span onClick={() => { setCurrentSelected(card); setListVisible(false); setCurrentType('cards') }} key={card} className={`w-full py-2 px-3 rounded-full ${currentSelected === card ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{card}</span>
+                        })}
                     </div>
 
                     {/* main content section */}
@@ -224,7 +238,7 @@ function page() {
                                 </div>
                             </Activity>
                             <Activity mode={viewType === 'demo' ? "visible" : "hidden"}>
-                                <div className={`w-full h-auto ${dark ? "bg-black text-white border-zinc-800" : "bg-white border-gray-300 text-black"} border duration-200 ease-in-out rounded-2xl relative flex justify-center items-center py-4 px-4`}>
+                                <div className={`w-full h-auto ${dark ? "bg-black text-white border-zinc-800" : "bg-white border-gray-300 text-black"} duration-200 ease-in-out border rounded-2xl relative flex justify-center items-center py-4 px-4`}>
                                     {currentComponent?.demo}
                                 </div>
                             </Activity>

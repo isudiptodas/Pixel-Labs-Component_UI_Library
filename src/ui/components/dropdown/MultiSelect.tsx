@@ -41,7 +41,7 @@ function MultiSelect({ SelectOption }: { SelectOption?: (option: string[]) => vo
         <p onClick={() => setDropdownVisible(!dropDownVisible)} className={`w-full flex justify-between items-center text-black bg-gray-100 py-3 px-3 cursor-pointer text-lg capitalize`}>Select <IoMdArrowDropdown className={`text-2xl ${dropDownVisible ? "rotate-180" : "rotate-0"} duration-200 ease-in-out`} /></p>
         <div className={`w-full max-h-[30vh] overflow-y-auto ${dropDownVisible ? "block" : "hidden"} flex flex-col justify-start items-center p-1 bg-gray-100 mt-1`}>
           {optionList.map((item, index) => {
-            return <p onClick={() => {handleSelectOption(item); }} key={index} className={`w-full text-start text-sm px-3 py-2 hover:bg-white hover:font-semibold cursor-pointer duration-200 ease-in-out capitalize flex justify-between items-center`}>{item} <span className={`text-black ${selectedOptions.length > 0 && selectedOptions.includes(item as never) ? "block" : "hidden"}`}>✓</span></p>
+            return <p onClick={() => {handleSelectOption(item); }} key={index} className={`w-full text-start text-sm px-3 py-2 hover:bg-white hover:font-semibold cursor-pointer duration-200 ease-in-out capitalize text-black flex justify-between items-center`}>{item} <span className={`text-black ${selectedOptions.length > 0 && selectedOptions.includes(item as never) ? "block" : "hidden"}`}>✓</span></p>
           })}
         </div>
       </div>
