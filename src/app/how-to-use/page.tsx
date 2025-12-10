@@ -51,14 +51,16 @@ function page() {
           <div className={`w-[90%] h-0.5 bg-linear-to-r from-transparent via-white to-transparent`} />
           <span onClick={() => setSidebarVisible(false)} className={`absolute top-8 text-white right-7 text-xl`}><BsLayoutSidebarReverse /></span>
 
-          <Link href='/' className={`w-full mt-10 py-2 text-start px-5 text-white text-xl font-Recline`}>Home</Link>
-          <Link href='/about' className={`w-full py-2 text-start px-5 text-white text-xl font-Recline`}>About</Link>
-          <Link href='/components' className={`w-full py-2 text-start px-5 text-white text-xl font-Recline`}>Components</Link>
-          <Link href='/how-to-use' className={`w-full py-2 text-start px-5 text-white text-xl font-Recline`}>How to use</Link>
+          <Link href='/' className={`w-full mt-10 py-2 text-start px-5 text-white text-4xl font-Recline`}>Home</Link>
+          <Link href='/about' className={`w-full py-2 text-start px-5 text-white text-4xl font-Recline`}>About</Link>
+          <Link href='/components' className={`w-full py-2 text-start px-5 text-white text-4xl font-Recline`}>Components</Link>
+          <Link href='/how-to-use' className={`w-full py-2 text-start px-5 text-white text-4xl font-Recline`}>How to use</Link>
+          <Link href='/license' className={`w-full py-2 text-start px-5 text-white text-4xl font-Recline`}>License</Link>
         </div>
 
         {/* navbar */}
-        <div className={`w-[95%] md:w-[75%] lg:w-[70%] z-20 fixed top-5 h-auto backdrop-blur-2xl ${dark ? "bg-black/15" : "bg-white/15"} duration-200 ease-in-out px-5 flex justify-between items-center py-5 lg:py-2 rounded-full border ${dark ? "border-gray-400" : "border-zinc-600"}`}>
+        <div
+          className={`w-[95%] lg:w-[90%] z-20 fixed top-5 h-auto backdrop-blur-2xl ${dark ? "bg-black/15" : "bg-white/15"} duration-200 ease-in-out px-5 flex justify-between items-center py-5 lg:py-2 rounded-full border ${dark ? "border-gray-400" : "border-zinc-600"}`}>
           <Link href='/' className={`${dark ? "text-white" : "text-black"} duration-200 ease-in-out cursor-pointer font-semibold text-xl font-Nearo`}>Pixel Labs</Link>
 
           <div className={`w-auto lg:hidden flex justify-center items-center gap-5`}>
@@ -82,6 +84,10 @@ function page() {
             <div className={`w-auto group hover:text-white duration-200 ease-in-out rounded-full px-4 py-2 overflow-hidden ${dark ? "text-white" : "text-black"} duration-200 ease-in-out font-Recline text-lg cursor-pointer relative`}>
               <div className={`absolute z-10 scale-0 group-hover:scale-100 ${pathname === '/how-to-use' ? "scale-100" : "scale-0"} duration-200 ease-in-out h-44 w-44 top-0 right-0 bg-orange-500`}></div>
               <Link href='/how-to-use' className={`relative z-20`}>How to use</Link>
+            </div>
+            <div className={`w-auto mr-3 group hover:text-white duration-200 ease-in-out rounded-full px-4 py-2 overflow-hidden ${dark ? "text-white" : "text-black"} duration-200 ease-in-out font-Recline text-lg cursor-pointer relative`}>
+              <div className={`absolute z-10 scale-0 group-hover:scale-100 ${pathname === '/license' ? "scale-100" : "scale-0"} duration-200 ease-in-out h-44 w-44 top-0 right-0 bg-orange-500`}></div>
+              <Link href='/license' className={`relative z-20`}>License</Link>
             </div>
             <span onClick={() => { setDark(!dark); }} className={`${dark ? "text-white" : "text-black"} duration-200 ease-in-out cursor-pointer text-xl p-2 rounded-full border`}>{dark ? <CiSun /> : <IoMoonOutline />}</span>
           </div>
