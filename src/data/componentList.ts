@@ -38,10 +38,3 @@ export const accordianList = [
     'Multi Open',
     'List with Icons',
 ];
-
-export const heroSectionList = [
-    'Type 1',
-    'Type 2',
-    'Type 3',
-    'Type 4',
-];

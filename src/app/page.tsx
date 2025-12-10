@@ -139,7 +139,7 @@ function page() {
           <div className={`w-auto break-inside-avoid mb-4 px-5 py-4 flex flex-col justify-center items-center rounded-lg border ${dark ? "border-gray-500" : "border-zinc-700"} ${dark ? "bg-black hover:bg-linear-to-br from-black via-zinc-900 to-zinc-700" : "bg-white hover:bg-linear-to-br from-white via-gray-100 to-gray-200"} cursor-default duration-200 ease-in-out`}>
             <h1 className={`w-full mb-2 ${dark ? "text-white" : "text-black"} duration-200 ease-in-out text-start font-bold text-xl`}>Gradients</h1>
             <p className={`${dark ? "text-white" : "text-black"} duration-200 ease-in-out w-full text-start text-[12px]`}>● Text Gradients</p>
-            <p className={`${dark ? "text-white" : "text-black"} duration-200 ease-in-out w-full text-start text-[12px]`}>● Background Gradients</p>
+            <p className={`${dark ? "text-white" : "text-black"} duration-200 ease-in-out w-full text-start text-[12px]`}>● Button Gradients</p>
           </div>
           <div className={`w-auto break-inside-avoid mb-4 px-5 py-4 flex flex-col justify-center items-center rounded-lg border ${dark ? "border-gray-500" : "border-zinc-700"} ${dark ? "bg-black hover:bg-linear-to-br from-black via-zinc-900 to-zinc-700" : "bg-white hover:bg-linear-to-br from-white via-gray-100 to-gray-200"} cursor-default duration-200 ease-in-out`}>
             <h1 className={`w-full mb-2 ${dark ? "text-white" : "text-black"} duration-200 ease-in-out text-start font-bold text-xl`}>Buttons</h1>

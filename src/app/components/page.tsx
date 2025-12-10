@@ -6,7 +6,7 @@ import { IoMdMenu } from "react-icons/io";
 import { BsLayoutSidebarReverse } from "react-icons/bs";
 import Link from "next/link";
 import { Activity, ReactElement, useEffect, useState } from "react";
-import { buttonList, drawerList, dropdownList, formList, cardList, accordianList, heroSectionList } from '@/data/componentList'
+import { buttonList, drawerList, dropdownList, formList, cardList, accordianList } from '@/data/componentList'
 import { FaAngleDown } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import { buttonComponent } from "@/data/buttonComponent";
@@ -20,7 +20,6 @@ import { drawerComponent } from "@/data/drawerComponent";
 import { cardsComponent } from "@/data/cardsComponent";
 import { motion } from 'framer-motion';
 import { accordianComponent } from "@/data/accordianComponent";
-import { heroSectionComponent } from "@/data/heroSectionComponent";
 
 interface currentComponent {
     name: string,
@@ -73,11 +72,6 @@ function page() {
         else if (currentType === 'accordian') {
             const currentName = currentSelected;
             const data = accordianComponent.filter((acc) => acc.name.toLowerCase() === currentName.toLowerCase());
-            setCurrentComponent(data[0] as currentComponent);
-        }
-        else if (currentType === 'hero') {
-            const currentName = currentSelected;
-            const data = heroSectionComponent.filter((hero) => hero.name.toLowerCase() === currentName.toLowerCase());
             setCurrentComponent(data[0] as currentComponent);
         }
     }, [currentSelected]);
@@ -213,10 +207,6 @@ function page() {
                         {accordianList.map((acc) => {
                             return <span onClick={() => { setCurrentSelected(acc); setListVisible(false); setCurrentType('accordian') }} key={acc} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{acc}</span>
                         })}
-                        <p className={`w-full mb-2 mt-2 text-start text-[18px] font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Hero Sections</p>
-                        {heroSectionList.map((hero) => {
-                            return <span onClick={() => { setCurrentSelected(hero); setListVisible(false); setCurrentType('hero') }} key={hero} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{hero}</span>
-                        })}
                     </motion.div>
                 </div>
 
@@ -252,10 +242,6 @@ function page() {
                         <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Accordian</p>
                         {accordianList.map((acc) => {
                             return <span onClick={() => { setCurrentSelected(acc); setListVisible(false); setCurrentType('accordian') }} key={acc} className={`w-full py-2 px-3 rounded-full ${currentSelected === acc ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{acc}</span>
-                        })}
-                        <p className={`w-full mb-2 mt-2 text-start text-[18px] lg:text-xl font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Hero Sections</p>
-                        {heroSectionList.map((hero) => {
-                            return <span onClick={() => { setCurrentSelected(hero); setListVisible(false); setCurrentType('hero') }} key={hero} className={`w-full py-2 px-3 rounded-full ${currentSelected === hero ? "bg-linear-to-br from-orange-400 via-orange-600 to-orange-800 text-white font-semibold" : ""} ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} hover:px-5 cursor-pointer duration-200 ease-in-out text-[10px] xl:text-[12px]`}>{hero}</span>
                         })}
                     </div>
 
