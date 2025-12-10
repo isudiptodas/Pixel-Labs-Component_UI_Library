@@ -3,6 +3,8 @@ export const buttonList = [
     'Gradient',
     'Shrink on click',
     'Multi color beam',  
+    'Border shine',
+    'Icon Reveal'
 ]; 
 
 export const formList = [

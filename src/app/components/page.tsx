@@ -18,6 +18,7 @@ import { formComponent } from "@/data/formComponent";
 import { dropdownComponent } from "@/data/dropdownComponent";
 import { drawerComponent } from "@/data/drawerComponent";
 import { cardsComponent } from "@/data/cardsComponent";
+import { motion } from 'framer-motion';
 
 interface currentComponent {
     name: string,
@@ -159,9 +160,23 @@ function page() {
                 {/* component list */}
                 <div onClick={() => setListVisible(!listVisible)} className={`w-[95%] md:w-[70%] lg:hidden mt-32 ${listVisible ? "h-[60vh]" : "h-auto"} duration-300 ease-in-out py-3 px-5 rounded-xl ${dark ? "border border-gray-400" : "border border-zinc-600"} duration-200 ease-in-out flex flex-col justify-start items-center`}>
                     <p className={`text-orange-500 font-semibold cursor-pointer text-sm w-full flex justify-between items-center`}>{currentSelected} <span className={`${listVisible ? "rotate-180" : "rotate-0"} ${dark ? "text-white" : "text-black"} duration-200 ease-in-out text-lg`}><FaAngleDown /></span></p>
-                    <hr className={`w-full my-5 ${listVisible ? "block" : "hidden"} h-[3px] ${dark ? "bg-white" : "bg-black"} opacity-50`} />
+                    <motion.hr
+                        initial={{ height: '0px', opacity: 0 }}
+                        animate={{
+                            height: listVisible ? "1px" : "0px",
+                            marginBottom: listVisible ? "20px" : "0px",
+                            marginTop: listVisible ? "20px" : "0px",
+                            opacity: listVisible ? 0.5 : 0
+                        }}
+                        transition={{ duration: 0.5, ease: 'easeInOut' }}
+                        className={`w-full ${dark ? "bg-white" : "bg-black"}`} />
 
-                    <div className={`w-full ${listVisible ? "block" : "hidden"} h-auto flex flex-col justify-start items-center overflow-y-auto scrollbar`}>
+                    <motion.div
+                        initial={{ height: '0px' }}
+                        animate={{
+                            height: listVisible ? "40vh" : "0px",
+                        }}
+                        transition={{ duration: 0.5, ease: 'easeInOut' }} className={`w-full flex flex-col justify-start items-center overflow-y-auto scrollbar`}>
                         <p className={`w-full mb-2 text-start text-[18px] font-semibold ${dark ? "text-white" : "text-black"} duration-200 ease-in-out`}>Buttons</p>
                         {buttonList.map((btn) => {
                             return <span onClick={() => { setCurrentSelected(btn); setListVisible(false); setCurrentType('button') }} key={btn} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{btn}</span>
@@ -182,7 +197,7 @@ function page() {
                         {cardList.map((card) => {
                             return <span onClick={() => { setCurrentSelected(card); setListVisible(false); setCurrentType('cards') }} key={card} className={`w-full py-2 px-3 rounded-md ${dark ? "text-white hover:bg-zinc-800" : "text-black hover:bg-gray-200"} cursor-pointer duration-200 ease-in-out text-[12px]`}>{card}</span>
                         })}
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* main section */}

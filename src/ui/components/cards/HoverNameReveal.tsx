@@ -41,10 +41,12 @@ function HoverNameReveal() {
                     return <div onClick={() => setCurrentImage(item.image)} key={index} className={`w-auto h-full flex-none relative border-r flex justify-center items-center`}>
                         <motion.p
                             style={{ whiteSpace: "nowrap" }}
+                            initial={{width: "10vw", opacity: 0}}
                             animate={{width: currentImage === item.image ? "50vw" : "10vw", opacity: currentImage === item.image ? 0 : 1}}
                             transition={{duration: 0.5, ease: 'easeInOut'}}
                         className={`text-gray-400 h-full absolute bottom-5 right-2 flex justify-start items-center text-6xl -rotate-90`}>{item.name}</motion.p>
                         <motion.img
+                        initial={{width: "10vw", opacity: 0}}
                         animate={{width: currentImage === item.image ? "50vw" : "10vw", opacity: currentImage === item.image ? 1 : 0}}
                         transition={{duration: 0.5, ease: 'easeInOut'}}
                         src={item.image} className={`h-full object-cover rounded-2xl`}/>

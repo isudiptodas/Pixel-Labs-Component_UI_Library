@@ -1,5 +1,7 @@
+import BorderShine from "@/ui/components/button/BorderShine";
 import ExpandOnHover from "@/ui/components/button/ExpandOnHover";
 import GradientButton from "@/ui/components/button/GradientButton";
+import IconReveal from "@/ui/components/button/IconReveal";
 import MultiColorBeam from "@/ui/components/button/MultiColorBeam";
 import ShrinkOnClick from "@/ui/components/button/ShrinkOnClick";
 
@@ -60,7 +62,37 @@ export const buttonComponent = [
         demo: <GradientButton/>,
         usage: `import <GradientButton/> from '@/components/GradientButton.tsx'`,
         props: [
-            {name: `Theme`, desc: `A string value which will determine the theme of the button`, example: `"red", "default", "green", "yellow", "blue"`}
+            {name: `Theme`, desc: `A string value which will determine the theme of the button`, example: `red, default, green, yellow, blue`}
         ]
+    },
+    {
+        name: `Border Shine`,
+        desc: `A button with border shine effect built with tailwind classes and framer motion.`,
+        codePage: `src/components/BorderShine.tsx`,
+        codePath: 'src/ui/components/button/BorderShine.tsx',
+        steps: [
+            { name: `1. Create a NextJs project by`, command: `npx create-next-app@latest` },
+            { name: `2. or a ReactJs project using`, command: `npm create vite@latest` },
+            { name: `3. Install and setup tailwindCSS` },
+        ],
+        demo: <BorderShine/>,
+        usage: `import <BorderShine/> from '@/components/BorderShine.tsx'`,
+        props: [
+            {name: `Shine`, desc: `A string value which will determine the shine color of the border`, example: `red, default, green, yellow, blue`}
+        ]
+    },
+    {
+        name: `Icon Reveal`,
+        desc: `A button with icon hidden, reveal on hover effect.`,
+        codePage: `src/components/IconReveal.tsx`,
+        codePath: 'src/ui/components/button/IconReveal.tsx',
+        steps: [
+            { name: `1. Create a NextJs project by`, command: `npx create-next-app@latest` },
+            { name: `2. or a ReactJs project using`, command: `npm create vite@latest` },
+            { name: `3. Install and setup tailwindCSS` },
+            { name: `4. Install react icons library`, command: `npm i react-icons` }
+        ],
+        demo: <IconReveal/>,
+        usage: `import <IconReveal/> from '@/components/IconReveal.tsx'`,
     },
 ];

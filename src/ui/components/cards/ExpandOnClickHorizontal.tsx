@@ -23,8 +23,8 @@ function ExpandOnClickHorizontal() {
         <>
             <div className={`w-full px-5 py-4 overflow-x-auto flex justify-start items-center gap-5 scrollbar h-[50vh]`}>
                 {imageList.map((item, index) => {
-                    return <motion.img onClick={() => setCurrentImage(item)} key={index} src={item} animate={{
-                        width: currentImage === item ? "30vw" : "5vw"
+                    return <motion.img onClick={() => setCurrentImage(item)} key={index} src={item} initial={{width: "5vw"}} animate={{
+                        width: currentImage === item ? "40vw" : "5vw"
                     }}
                     transition={{ duration: 0.5, ease: "easeInOut" }} className={`h-full cursor-pointer object-cover rounded-lg`} />
                 })}

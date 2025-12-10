@@ -22,7 +22,7 @@ function ExpandOnClickVertical() {
         <>
             <div className={`w-full px-5 py-4 overflow-y-auto flex flex-col justify-start items-center gap-5 scrollbar h-[70vh]`}>
                 {imageList.map((item, index) => {
-                    return <motion.img onClick={() => setCurrentImage(item)} key={index} src={item} animate={{
+                    return <motion.img onClick={() => setCurrentImage(item)} key={index} src={item} initial={{height: "5vh"}} animate={{
                         height: currentImage === item ? "70vh" : "5vh"
                     }}
                     transition={{ duration: 0.5, ease: "easeInOut" }} className={`w-full lg:w-[60%] cursor-pointer object-cover rounded-lg`} />
