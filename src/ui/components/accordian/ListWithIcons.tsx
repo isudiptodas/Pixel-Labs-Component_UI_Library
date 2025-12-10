@@ -6,7 +6,7 @@ import { FaPlus } from "react-icons/fa6";
 import useMeasure from "react-use-measure";
 import { FaHeartbeat, FaShieldAlt, FaRobot, FaChartLine, FaBolt } from "react-icons/fa";
 
-function page() {
+function ListWithIcons() {
 
     const [current, setCurrent] = useState<null | number>(null);
 
@@ -79,4 +79,4 @@ function page() {
     )
 }
 
-export default page
+export default ListWithIcons

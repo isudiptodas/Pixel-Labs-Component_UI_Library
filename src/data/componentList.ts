@@ -32,3 +32,9 @@ export const cardList = [
     'Pricing Info',
     'Hover Name Reveal'
 ];
+
+export const accordianList = [
+    'Single Open',
+    'Multi Open',
+    'List with Icons',
+];
