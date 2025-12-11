@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+###
+<img src='https://lfjakrpqbidggevkatwm.supabase.co/storage/v1/object/public/design_work/pixel-labs.png' alt='pixel-labs-poster'/>
 
-## Getting Started
+<p>Speed up your development with pre built components that are responsive and production safe. Built with ReactJs (v19), TailwindCSS (v4.0) and Framer Motion.</p>
 
-First, run the development server:
+<h1>Do I need to have a strong understanding of React or Tailwind ?</h1>
+<p>Well, 50% yes and 50% no. The UI is very much clean and minimal so users will find it very easy to follow and integrate these components in their projects although it is good to have an understanding of how react ecosystem, it's components, hooks works and yes a little of tailwind classes.</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+###
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h1>This library is built on javascript or typescript ?</h1>
+<p>Pixel Labs is built fully using typescript but you are open to any customizations of your own.</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+###
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<h1>Is this library only for react projects ?</h1>
+<p>Pixel Labs components are built for react, nextjs projects where tailwind is installed.</p>
 
-## Learn More
+###
 
-To learn more about Next.js, take a look at the following resources:
+<h1>Is Pixel Labs open source and can I use or custommize it according to me ?</h1>
+<p>Yes, Pixel Labs is an open source UI library and you are free to make a copy of your own and do customizations according to you. However, it is recommended that you must keep some do's and don'ts in mind and kindly read the LICENSE before proceeding.</p>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
