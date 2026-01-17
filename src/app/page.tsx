@@ -60,7 +60,7 @@ function page() {
           initial={{ filter: 'blur(10px)', opacity: 0 }}
           animate={{ filter: 'blur(0px)', opacity: 1 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className={`w-[95%] lg:w-[90%] z-20 fixed top-5 h-auto backdrop-blur-2xl ${dark ? "bg-black/15" : "bg-white/15"} duration-200 ease-in-out px-5 flex justify-between items-center py-5 lg:py-2 rounded-full border ${dark ? "border-gray-400" : "border-zinc-600"}`}>
+          className={`w-[95%] lg:w-[90%] z-20 fixed top-5 h-auto backdrop-blur-2xl ${dark ? "bg-black/15" : "bg-white/15"} duration-200 ease-in-out px-5 flex justify-between items-center py-3 lg:py-2 rounded-full border ${dark ? "border-gray-400" : "border-zinc-600"}`}>
           <Link href='/' className={`${dark ? "text-white" : "text-black"} duration-200 ease-in-out cursor-pointer font-semibold text-xl font-Nearo`}>Pixel Labs</Link>
 
           <div className={`w-auto lg:hidden flex justify-center items-center gap-5`}>
