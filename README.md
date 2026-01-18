@@ -1,5 +1,5 @@
 ###
-<img src='https://lfjakrpqbidggevkatwm.supabase.co/storage/v1/object/public/design_work/pixel-labs.png' alt='pixel-labs-poster'/>
+<img height="600" src='https://lfjakrpqbidggevkatwm.supabase.co/storage/v1/object/public/design_work/pixel-labs.png' alt='pixel-labs-poster'/>
 
 <p>Speed up your development with pre built components that are responsive and production safe. Built with ReactJs (v19), TailwindCSS (v4.0) and Framer Motion.</p>
 
